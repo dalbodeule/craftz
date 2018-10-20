@@ -1,0 +1,63 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+plugins {
+    id 'java'
+}
+
+wrapper {
+    distributionType = Wrapper.DistributionType.ALL
+}
+
+group = project.pluginGroup
+version = project.pluginVersion
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+assemble.dependsOn clean
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/groups/public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+    maven {
+        name = 'dynmap-repo'
+        url = 'http://repo.mikeprimm.com/'
+    }
+    maven {
+        name = 'vault-repo'
+        url = 'http://nexus.hc.to/content/repositories/pub_releases'
+    }
+}
+
+dependencies {
+    implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.2'
+    
+    implementation group: 'org.spigotmc', name: 'spigot-api', version: '1.12.2-R0.1-SNAPSHOT'
+    implementation group: 'org.dynmap', name: 'dynmap-api', version: '2.0'
+    implementation group: 'net.milkbowl.vault', name: 'VaultAPI', version: '1.7'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.3.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.3.1'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.3.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+processResources {
+    from(sourceSets.main.resources.srcDirs) {
+        filteringCharset = 'UTF-8'
+        filter ReplaceTokens, tokens: [version: project.version]
+    }
+}

@@ -1,0 +1,124 @@
+name: CraftZ
+version: @version@
+author: JangoBrick
+authors:
+  - JangoBrick
+  - RanolP
+  - small_sunshine
+main: CraftZ
+load: STARTUP
+
+softdepend: ["Vault", "dynmap"]
+
+commands:
+  craftz:
+    description: Main command, displays help.
+    usage: /<command>
+
+permissions:
+  craftz.*:
+    children:
+      craftz.player: true
+      craftz.builder: true
+      craftz.admin: true
+      craftz.bypassKick: true
+
+  craftz.player:
+    description: Grants normal player permissions.
+    default: true
+    children:
+      craftz.help: true
+      craftz.spawn: true
+      craftz.top: true
+
+  craftz.builder:
+    description: Grants builder permissions.
+    default: op
+    children:
+      craftz.player: true
+      craftz.build: true
+      craftz.buildPlayerSpawn: true
+      craftz.buildZombieSpawn: true
+      craftz.buildLootChest: true
+
+  craftz.admin:
+    description: Grants admin permissions.
+    default: op
+    children:
+      craftz.player: true
+      craftz.builder: true
+      craftz.reload: true
+      craftz.setlobby: true
+      craftz.setborder: true
+      craftz.kitsadmin: true
+      craftz.sign: true
+      craftz.remitems: true
+      craftz.purge: true
+      craftz.smasher: true
+      craftz.makeBackpack: true
+      craftz.instantRespawn: true
+      craftz.spawn.choose: true
+
+  craftz.help:
+    description: Allows you to see the help
+    default: true
+  craftz.spawn:
+    description: Allows you to join the game
+    default: true
+  craftz.top:
+    description: Allows you to see the highscore list
+    default: true
+
+  craftz.reload:
+    description: Allows you to reload the config files.
+    default: op
+  craftz.setlobby:
+    description: Allows configuring the lobby
+    default: op
+  craftz.setborder:
+    description: Allows configuring the world border
+    default: op
+  craftz.kitsadmin:
+    description: Allows configuring the available kits
+    default: op
+  craftz.sign:
+    description: Allows you to obtain a pre-written sign
+    default: op
+  craftz.remitems:
+    description: Allows you to remove all items from the world
+    default: op
+  craftz.purge:
+    description: Allows you to remove all zombies from the world
+    default: op
+  craftz.smasher:
+    description: Allows you to obtain the ultimate zombie smasher
+    default: op
+  craftz.makeBackpack:
+    description: Allows you to create backpacks
+    default: op
+
+  craftz.bypassKick:
+    description: Allows you to bypass the kick-on-death setting
+    default: false
+  craftz.instantRespawn:
+    description: Allows you to respawn immediately.
+    default: op
+  craftz.spawn.choose:
+    description: Allows you to select the spawnpoint where you want to apppear.
+    default: op
+    children:
+      craftz.spawn: true
+
+  craftz.build:
+    description: Allows you to place and destroy blocks, item frames etc
+    default: op
+
+  craftz.buildPlayerSpawn:
+    description: Allows you to create player spawns
+    default: op
+  craftz.buildZombieSpawn:
+    description: Allows you to create zombie spawns
+    default: op
+  craftz.buildLootChest:
+    description: Allows you to create loot chests
+    default: op
