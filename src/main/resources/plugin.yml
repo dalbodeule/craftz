@@ -5,7 +5,7 @@ authors:
   - JangoBrick
   - RanolP
   - small_sunshine
-main: CraftZ
+main: space.mori.craftz.CraftZ
 load: STARTUP
 
 softdepend: ["Vault", "dynmap"]

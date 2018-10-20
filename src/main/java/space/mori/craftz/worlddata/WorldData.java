@@ -83,7 +83,7 @@ public class WorldData {
             return;
         }
         for (final String key : plSec.getKeys(false)) {
-            final UUID id = Bukkit.getOfflinePlayer(key).getUniqueId();
+            final UUID id = Bukkit.getOfflinePlayer(UUID.fromString(key)).getUniqueId();
             if (id == null) {
                 CraftZ.warn(" -  Not able to convert player '" + key + "', he will be deleted");
                 plSec.set(key, null);

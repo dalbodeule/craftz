@@ -56,12 +56,16 @@ public class RescueModule extends Module {
                         String.valueOf(config.getInt("Config.players.rescue.countdown"))));
                 p.playSound(p.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 2);
 
-                //Delay
+                // Delay
                 Bukkit.getScheduler().runTaskLater(this.getCraftZ(), () -> {
                     if(players.contains(p)) {
+                        // teleport and message
                         p.sendMessage(ChatColor.GREEN + this.getMsg("Messages.rescue-success"));
                         p.teleport(lobby);
+
+                        // teleport after jobs
                         event.getItem().setAmount(event.getItem().getAmount() - 1);
+                        playermanager.resetPlayer(p);
                         players.remove(p);
                     }
                 }, config.getInt("Config.players.rescue.countdown") * 20);
