@@ -48,7 +48,7 @@ public class ChatModule extends Module {
             Location ploc = event.getPlayer().getLocation();
             boolean radio = config.getBoolean("Config.chat.ranged.enable-radio")
                     && event.getPlayer().getInventory().getItemInMainHand() != null
-                    && event.getPlayer().getInventory().getItemInMainHand().getType() == Material.WATCH;
+                    && event.getPlayer().getInventory().getItemInMainHand().getType() == Material.CLOCK;
             int channel = 0;
             try {
                 channel = Integer.parseInt(event.getPlayer()
@@ -63,7 +63,7 @@ public class ChatModule extends Module {
                 boolean send_separate = !separate || ploc.getWorld().equals(rp.getWorld());
                 boolean send_range = ploc.getWorld().equals(rp.getWorld()) && ploc.distance(rp.getLocation()) <= range;
                 boolean send_radio = false;
-                for (Map.Entry<Integer, ? extends ItemStack> entry : rp.getInventory().all(Material.WATCH).entrySet()) {
+                for (Map.Entry<Integer, ? extends ItemStack> entry : rp.getInventory().all(Material.CLOCK).entrySet()) {
                     ItemStack stack = entry.getValue();
                     if (stack != null && stack.hasItemMeta()) {
                         int ochannel = 0;
@@ -102,7 +102,7 @@ public class ChatModule extends Module {
         ItemStack item = event.getItem();
         Material type = event.getMaterial();
         Action action = event.getAction();
-        if (type != Material.WATCH || !config.getBoolean("Config.chat.ranged.enable-radio")) {
+        if (type != Material.CLOCK || !config.getBoolean("Config.chat.ranged.enable-radio")) {
             return;
         }
         ItemMeta meta = item.getItemMeta();

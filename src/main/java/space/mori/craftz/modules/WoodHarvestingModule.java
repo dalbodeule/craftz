@@ -48,8 +48,8 @@ public class WoodHarvestingModule extends Module {
         if (BlockChecker.isTree(block)) {
             int limit = config.getInt("Config.players.wood-harvesting.log-limit");
             PlayerInventory inv = p.getInventory();
-            if (limit < 1 || (!inv.contains(Material.LOG, limit) && !inv.contains(Material.LOG_2, limit))) {
-                Item itm = p.getWorld().dropItem(p.getLocation(), new ItemStack(Material.LOG, 1));
+            if (limit < 1 || (!inv.contains(Material.LEGACY_LOG, limit) && !inv.contains(Material.LEGACY_LOG_2, limit))) {
+                Item itm = p.getWorld().dropItem(p.getLocation(), new ItemStack(Material.LEGACY_LOG, 1));
                 itm.setPickupDelay(0);
                 p.sendMessage(this.getMsg("Messages.harvested-tree"));
             } else {
@@ -62,7 +62,7 @@ public class WoodHarvestingModule extends Module {
 
     @Override
     public int getNumberAllowed(Inventory inv, ItemStack item) {
-        if ((item.getType() != Material.LOG && item.getType() != Material.LOG_2) || !this.getConfig("config")
+        if ((item.getType() != Material.LEGACY_LOG && item.getType() != Material.LEGACY_LOG_2) || !this.getConfig("config")
                 .getBoolean("Config.players.wood-harvesting.enable")) {
             return -1;
         }
@@ -70,7 +70,7 @@ public class WoodHarvestingModule extends Module {
         if (limit < 0) {
             return -1;
         }
-        int invAmount = getAmount(Material.LOG, inv) + getAmount(Material.LOG_2, inv);
+        int invAmount = getAmount(Material.LEGACY_LOG, inv) + getAmount(Material.LEGACY_LOG_2, inv);
         return Math.max(limit - invAmount, 0);
     }
 }

@@ -4,9 +4,11 @@ author: JangoBrick
 authors:
   - JangoBrick
   - RanolP
-  - small_sunshine
+  - dalbodeule
 main: space.mori.craftz.CraftZ
 load: STARTUP
+
+api-version: 1.16
 
 softdepend: ["Vault", "dynmap"]
 

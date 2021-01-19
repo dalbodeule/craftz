@@ -45,7 +45,7 @@ public class PoisoningModule extends Module {
         Player pdamager = (Player) damager;
         ItemStack hand = pdamager.getInventory().getItemInMainHand();
         Player player = (Player) event.getEntity();
-        if (hand.getType() != Material.INK_SACK || hand.getDurability() != 10 || !this.getConfig("config")
+        if (hand.getType() != Material.INK_SAC || hand.getDurability() != 10 || !this.getConfig("config")
                 .getBoolean("Config.players.medical.poisoning.cure-with-limegreen")) {
             return;
         }
@@ -69,7 +69,7 @@ public class PoisoningModule extends Module {
         }
         Player p = event.getPlayer();
         if ((event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)
-                && event.getMaterial() == Material.INK_SACK && event.getItem().getDurability() == 10 && this.getConfig(
+                && event.getMaterial() == Material.INK_SAC && event.getItem().getDurability() == 10 && this.getConfig(
                 "config").getBoolean("Config.players.medical.poisoning.cure-with-limegreen")) {
             this.reduceInHand(p);
             this.getData(p).poisoned = false;

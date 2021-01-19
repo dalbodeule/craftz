@@ -37,7 +37,7 @@ public final class SignCommand extends CraftZCommand {
                 desc = "Zombie Spawn" + (line4.equals("") ? "" : (" '" + line4 + "'"));
             }
             this.p.getInventory()
-                    .addItem(ItemRenamer.on(new ItemStack(Material.SIGN))
+                    .addItem(ItemRenamer.on(new ItemStack(Material.OAK_SIGN))
                             .setName(ChatColor.DARK_PURPLE + "Pre-written Sign / " + desc)
                             .setLore("[CraftZ]", line2, line3, line4)
                             .get());

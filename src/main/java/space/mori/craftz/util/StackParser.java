@@ -1,10 +1,9 @@
 package space.mori.craftz.util;
 
-import space.mori.craftz.CraftZ;
-import space.mori.craftz.worlddata.Backpack;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+import space.mori.craftz.worlddata.Backpack;
 
 import javax.annotation.Nonnull;
 import java.util.Optional;
@@ -34,7 +33,7 @@ public class StackParser {
         if (itemName.startsWith("<") && itemName.endsWith(">")) {
             return getCustomItem(itemName.substring(1, itemName.length() - 1), amount);
         }
-        if (itemName.contains(":")) {
+        /* if (itemName.contains(":")) {
             try {
                 final Material mat2 = Material.matchMaterial(itemName.split(":")[0]);
                 mat = ((mat2 != null) ? mat2 : Material.getMaterial(Integer.parseInt(itemName.split(":")[0])));
@@ -52,7 +51,7 @@ public class StackParser {
             if (mat == null) {
                 CraftZ.severe("There is no item with name '" + itemName + "'! Please check the configuration files.");
             }
-        }
+        } */
         return (mat == null) ? Optional.empty() : Optional.of(new ItemStack(mat, amount, data));
     }
 

@@ -23,15 +23,15 @@ public class Dynmap extends Module {
         Dynmap.itemImageMap.put(Material.LEATHER_HELMET, "leather-cap");
         Dynmap.itemImageMap.put(Material.LEATHER_CHESTPLATE, "leather-tunic");
         Dynmap.itemImageMap.put(Material.LEATHER_LEGGINGS, "leather-pants");
-        Dynmap.itemImageMap.put(Material.WEB, "web-block");
-        Dynmap.itemImageMap.put(Material.WOOD_SWORD, "wooden-sword");
-        Dynmap.itemImageMap.put(Material.WOOD_PICKAXE, "wooden-pickaxe");
-        Dynmap.itemImageMap.put(Material.WOOD_AXE, "wooden-axe");
-        Dynmap.itemImageMap.put(Material.WOOD_HOE, "wooden-hoe");
-        Dynmap.itemImageMap.put(Material.WOOD_SPADE, "wooden-shovel");
-        Dynmap.itemImageMap.put(Material.MUSHROOM_SOUP, "mushroom-stew");
-        Dynmap.itemImageMap.put(Material.CARROT_ITEM, "carrot");
-        Dynmap.itemImageMap.put(Material.WORKBENCH, "crafting-table");
+        Dynmap.itemImageMap.put(Material.COBWEB, "web-block");
+        Dynmap.itemImageMap.put(Material.WOODEN_SWORD, "wooden-sword");
+        Dynmap.itemImageMap.put(Material.WOODEN_PICKAXE, "wooden-pickaxe");
+        Dynmap.itemImageMap.put(Material.WOODEN_AXE, "wooden-axe");
+        Dynmap.itemImageMap.put(Material.WOODEN_HOE, "wooden-hoe");
+        Dynmap.itemImageMap.put(Material.WOODEN_SHOVEL, "wooden-shovel");
+        Dynmap.itemImageMap.put(Material.MUSHROOM_STEW, "mushroom-stew");
+        Dynmap.itemImageMap.put(Material.CARROT, "carrot");
+        Dynmap.itemImageMap.put(Material.CRAFTING_TABLE, "crafting-table");
     }
 
     public Object ICON_LOOT;

@@ -1,13 +1,10 @@
 package space.mori.craftz.modules;
 
+import org.bukkit.*;
 import space.mori.craftz.CraftZ;
 import space.mori.craftz.Module;
 import space.mori.craftz.util.EntityChecker;
 import space.mori.craftz.util.ItemRenamer;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;

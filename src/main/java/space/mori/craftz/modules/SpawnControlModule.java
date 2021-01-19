@@ -12,14 +12,36 @@ import java.util.Arrays;
 import java.util.List;
 
 public class SpawnControlModule extends Module {
-    public static final List<EntityType> BLOCKED = Arrays.asList(EntityType.SKELETON, EntityType.CREEPER,
-            EntityType.SPIDER, EntityType.ENDERMAN, EntityType.GHAST, EntityType.SILVERFISH, EntityType.SLIME,
-            EntityType.SQUID, EntityType.PIG_ZOMBIE, EntityType.MAGMA_CUBE, EntityType.CAVE_SPIDER, EntityType.BLAZE,
-            EntityType.OCELOT, EntityType.BAT, EntityType.WITCH, EntityType.WOLF, EntityType.MUSHROOM_COW,
-            EntityType.HORSE, EntityType.ENDERMITE, EntityType.RABBIT
+    public static final List<EntityType> BLOCKED = Arrays.asList(
+            EntityType.BAT, EntityType.BLAZE, EntityType.BEE,
+            EntityType.CAT, EntityType.CAVE_SPIDER, EntityType.CREEPER,
+            EntityType.DONKEY,
+            EntityType.ENDERMAN, EntityType.ENDERMITE, EntityType.ELDER_GUARDIAN, EntityType.EVOKER,
+            EntityType.FOX,
+            EntityType.GHAST, EntityType.GUARDIAN,
+            EntityType.HORSE, EntityType.HOGLIN, EntityType.HUSK,
+            EntityType.ILLUSIONER,
+            EntityType.MAGMA_CUBE, EntityType.MUSHROOM_COW, EntityType.MULE,
+            EntityType.OCELOT,
+            EntityType.PANDA, EntityType.PIGLIN, EntityType.PILLAGER,
+            EntityType.RABBIT, EntityType.RAVAGER,
+            EntityType.SKELETON, EntityType.SPIDER, EntityType.SILVERFISH, EntityType.SLIME, EntityType.SQUID,
+            EntityType.SHULKER, EntityType.STRAY,
+            EntityType.TRADER_LLAMA,
+            EntityType.VILLAGER, EntityType.VEX, EntityType.VINDICATOR,
+            EntityType.WITCH, EntityType.WOLF, EntityType.WITHER, EntityType.WITHER_SKELETON,
+            EntityType.ZOMBIFIED_PIGLIN, EntityType.ZOGLIN
     );
     public static final List<EntityType> ANIMALS = Arrays.asList(
-            EntityType.SHEEP, EntityType.PIG, EntityType.COW, EntityType.CHICKEN);
+            EntityType.CAT, EntityType.CHICKEN, EntityType.COD, EntityType.COW,
+            EntityType.DONKEY, EntityType.DOLPHIN,
+            EntityType.PIG,
+            EntityType.PANDA, EntityType.PARROT, EntityType.POLAR_BEAR, EntityType.PUFFERFISH,
+            EntityType.RABBIT,
+            EntityType.SALMON, EntityType.SHEEP,
+            EntityType.TROPICAL_FISH, EntityType.TURTLE,
+            EntityType.VILLAGER
+    );
 
     public SpawnControlModule(CraftZ craftZ) {
         super(craftZ);

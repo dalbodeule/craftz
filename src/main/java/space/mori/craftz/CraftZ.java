@@ -1,12 +1,5 @@
 package space.mori.craftz;
 
-import space.mori.craftz.commands.*;
-import space.mori.craftz.modules.*;
-import space.mori.craftz.util.EntityChecker;
-import space.mori.craftz.util.ItemRenamer;
-import space.mori.craftz.util.Rewarder;
-import space.mori.craftz.worlddata.Backpack;
-import space.mori.craftz.worlddata.WorldData;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -25,6 +18,11 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import space.mori.craftz.commands.*;
 import space.mori.craftz.modules.*;
+import space.mori.craftz.util.EntityChecker;
+import space.mori.craftz.util.ItemRenamer;
+import space.mori.craftz.util.Rewarder;
+import space.mori.craftz.worlddata.Backpack;
+import space.mori.craftz.worlddata.WorldData;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -59,7 +57,7 @@ public class CraftZ extends JavaPlugin {
         if (prefix == null) {
             return sec.getInt("properties." + property);
         }
-        if (sec.getString(prefix + "properties." + property, "same").equalsIgnoreCase("same")) {
+        if (Objects.requireNonNull(sec.getString(prefix + "properties." + property, "same")).equalsIgnoreCase("same")) {
             return sec.getInt("properties." + property);
         }
         return sec.getInt(prefix + "properties." + property);
@@ -122,7 +120,7 @@ public class CraftZ extends JavaPlugin {
             ConfigManager.saveConfig("config");
         }
         this.addModule(this.commandManager = new CraftZCommandManager(this));
-        this.getCommand("craftz").setExecutor(this.commandManager);
+        Objects.requireNonNull(this.getCommand("craftz")).setExecutor(this.commandManager);
         this.commandManager.setDefault(new HelpCommand(this));
         this.commandManager.registerCommand(new SpawnCommand(this), "spawn");
         this.commandManager.registerCommand(new TopCommand(this), "top");
@@ -287,7 +285,7 @@ public class CraftZ extends JavaPlugin {
     }
 
     private void loadConfigs() {
-        final Map<String, Object> def_config = new LinkedHashMap<String, Object>();
+        final Map<String, Object> def_config = new LinkedHashMap<>();
         def_config.put("Config.never-ever-modify.first-run", true);
         def_config.put("Config.lobby.world", "world");
         def_config.put("Config.lobby.x", 0);
@@ -606,12 +604,12 @@ public class CraftZ extends JavaPlugin {
             loot.addDefault("Loot.lists.medical", medical);
         }
         ConfigManager.saveConfig("loot");
-        Map<String, Object> def_highscores = new LinkedHashMap<String, Object>();
+        Map<String, Object> def_highscores = new LinkedHashMap<>();
         ConfigManager.newConfig("highscores", CraftZ.instance, def_highscores);
         ConfigManager.getConfig("highscores")
                 .options()
                 .header("++========================================================++\n|| Highscore database for the CraftZ plugin by JangoBrick ||\n++========================================================++");
-        Map<String, Object> def_kits = new LinkedHashMap<String, Object>();
+        Map<String, Object> def_kits = new LinkedHashMap<>();
         def_kits.put("Kits.settings.soulbound-label", "Soulbound");
         ConfigManager.newConfig("kits", CraftZ.instance, def_kits);
         ConfigManager.getConfig("kits")
@@ -622,8 +620,8 @@ public class CraftZ extends JavaPlugin {
             kits.addDefault("Kits.kits.nothing.default", true);
             kits.addDefault("Kits.kits.nothing.items", new LinkedHashMap());
             kits.addDefault("Kits.kits.basic.permission", "craftz.kit.basic");
-            Map<String, ItemStack> kits_basic_items = new LinkedHashMap<String, ItemStack>();
-            kits_basic_items.put("0", new ItemStack(Material.WOOD_SWORD, 1, (short) 40));
+            Map<String, ItemStack> kits_basic_items = new LinkedHashMap<>();
+            kits_basic_items.put("0", new ItemStack(Material.WOODEN_SWORD, 1, (short) 40));
             kits_basic_items.put("1", new ItemStack(Material.GLASS_BOTTLE, 1));
             kits_basic_items.put("2", new ItemStack(Material.COOKIE, 3));
             kits_basic_items.put("8", Backpack.createItem(9, "Coyote Patrol Pack", false));
@@ -633,7 +631,7 @@ public class CraftZ extends JavaPlugin {
             kits.addDefault("Kits.kits.basic.items", kits_basic_items);
             ConfigManager.saveConfig("kits");
         }
-        Map<String, Object> def_enemies = new LinkedHashMap<String, Object>();
+        Map<String, Object> def_enemies = new LinkedHashMap<>();
         ConfigManager.newConfig("enemies", this, def_enemies);
         ConfigManager.getConfig("kits")
                 .options()
@@ -692,7 +690,7 @@ public class CraftZ extends JavaPlugin {
 
     public String getPrefix() {
         String pre = ConfigManager.getConfig("config").getString("Config.chat.prefix");
-        return pre.length() > 0 ? pre : "[CraftZ]";
+        return (pre != null ? pre.length() : 0) > 0 ? pre : "[CraftZ]";
     }
 
     public String worldName() {

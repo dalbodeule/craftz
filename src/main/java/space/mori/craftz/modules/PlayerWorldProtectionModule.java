@@ -1,5 +1,6 @@
 package space.mori.craftz.modules;
 
+import org.bukkit.event.world.PortalCreateEvent;
 import space.mori.craftz.CraftZ;
 import space.mori.craftz.Module;
 import space.mori.craftz.util.StackParser;
@@ -16,7 +17,6 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockIgniteEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.event.entity.EntityCreatePortalEvent;
 import org.bukkit.event.entity.SheepDyeWoolEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.hanging.HangingPlaceEvent;
@@ -120,8 +120,8 @@ public class PlayerWorldProtectionModule extends Module {
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
-    public void onPortalCreate(EntityCreatePortalEvent event) {
-        LivingEntity entity = event.getEntity();
+    public void onPortalCreate(PortalCreateEvent event) {
+        LivingEntity entity = (LivingEntity) event.getEntity();
         if (!this.isWorld(entity.getWorld()) || !(entity instanceof Player) || this.getConfig("config")
                 .getBoolean("Config.players.interact.block-placing")) {
             return;

@@ -42,8 +42,8 @@ public class FireplaceModule extends Module {
         if (this.isWorld(event.getPlayer().getWorld())) {
             final Player p = event.getPlayer();
             final Block block = event.getClickedBlock();
-            if (event.getAction() == Action.RIGHT_CLICK_BLOCK && (event.getMaterial() == Material.LOG
-                    || event.getMaterial() == Material.LOG_2) && this.getConfig("config")
+            if (event.getAction() == Action.RIGHT_CLICK_BLOCK && (event.getMaterial() == Material.LEGACY_LOG
+                    || event.getMaterial() == Material.LEGACY_LOG_2) && this.getConfig("config")
                     .getBoolean("Config.players.campfires.enable")) {
                 if (!block.getType().isTransparent() && block.getType().isSolid() && block.getType() != Material.CHEST
                         && block.getRelative(BlockFace.UP).getType() == Material.AIR
@@ -74,7 +74,7 @@ public class FireplaceModule extends Module {
         final Block block = event.getBlock();
         final Material type = block.getType();
         final Player p = event.getPlayer();
-        if (this.isWorld(p.getWorld()) && (type == Material.LOG || type == Material.LOG_2) && this.getConfig("config")
+        if (this.isWorld(p.getWorld()) && (type == Material.LEGACY_LOG || type == Material.LEGACY_LOG_2) && this.getConfig("config")
                 .getBoolean("Config.players.campfires.enable")) {
             event.setCancelled(true);
         }
@@ -111,23 +111,27 @@ public class FireplaceModule extends Module {
                             item.remove();
                             final Material type = result.getType();
                             switch (type) {
-                                case RAW_CHICKEN: {
+                                case CHICKEN: {
                                     result.setType(Material.COOKED_CHICKEN);
                                     break;
                                 }
-                                case RAW_BEEF: {
+                                case BEEF: {
                                     result.setType(Material.COOKED_BEEF);
                                     break;
                                 }
-                                case RAW_FISH: {
-                                    result.setType(Material.COOKED_FISH);
+                                case COD: {
+                                    result.setType(Material.COOKED_COD);
                                     break;
                                 }
-                                case PORK: {
-                                    result.setType(Material.GRILLED_PORK);
+                                case SALMON: {
+                                    result.setType(Material.COOKED_SALMON);
                                     break;
                                 }
-                                case POTATO_ITEM: {
+                                case PORKCHOP: {
+                                    result.setType(Material.COOKED_PORKCHOP);
+                                    break;
+                                }
+                                case POTATO: {
                                     result.setType(Material.BAKED_POTATO);
                                     break;
                                 }

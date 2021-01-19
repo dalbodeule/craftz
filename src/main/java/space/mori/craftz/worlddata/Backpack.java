@@ -82,7 +82,7 @@ public class Backpack extends WorldDataObject {
             return false;
         }
         List<String> lore = meta.getLore();
-        return lore != null && lore.size() >= 3 && lore.get(0).equals(LORE_PREFIX + "Backpack");
+        return lore != null && lore.size() >= 3 && lore.get(0).contains("Backpack");
     }
 
     public void save() {

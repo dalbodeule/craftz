@@ -57,8 +57,8 @@ public class BlockChecker {
 
     public static boolean isTree(@Nonnull Block block) {
         Location loc = block.getLocation();
-        int below = countBlocksBelow(loc, Material.LOG, Material.LOG_2);
-        int above = countBlocksAbove(loc, Material.LOG, Material.LOG_2);
+        int below = countBlocksBelow(loc, Material.LEGACY_LOG, Material.LEGACY_LOG_2);
+        int above = countBlocksAbove(loc, Material.LEGACY_LOG, Material.LEGACY_LOG_2);
         int logs = below + above;
         Location top = loc.clone().add(0.0, (double) above, 0.0);
         return logs > 2 && (isLeaves(top, BlockFace.UP) || (isLeaves(top, BlockFace.NORTH) && isLeaves(
@@ -67,7 +67,7 @@ public class BlockChecker {
 
     private static boolean isLeaves(@Nonnull Location loc, @Nonnull BlockFace face) {
         final Material t = loc.getBlock().getRelative(face).getType();
-        return t == Material.LEAVES || t == Material.LEAVES_2;
+        return t == Material.LEGACY_LEAVES || t == Material.LEGACY_LEAVES_2;
     }
 
     public static boolean isSafe(@Nonnull Location loc) {
@@ -79,7 +79,7 @@ public class BlockChecker {
     }
 
     public static boolean isSafe(@Nonnull Material type) {
-        return !type.isSolid() && type != Material.LAVA && type != Material.STATIONARY_LAVA;
+        return !type.isSolid() && type != Material.LAVA && type != Material.LEGACY_STATIONARY_LAVA;
     }
 
     public static int countBlocksBelow(@Nonnull Location loc, @Nonnull Material... types) {

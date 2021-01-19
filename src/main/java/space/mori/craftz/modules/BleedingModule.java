@@ -58,7 +58,7 @@ public class BleedingModule extends Module {
         } else {
             p.sendMessage(ChatColor.DARK_RED + this.getMsg("Messages.bandaged-unnecessary"));
         }
-        p.playSound(p.getLocation(), Sound.ENTITY_ENDERDRAGON_FLAP, 1.0f, 1.0f);
+        p.playSound(p.getLocation(), Sound.ENTITY_ENDER_DRAGON_FLAP, 1.0f, 1.0f);
     }
 
     @Override

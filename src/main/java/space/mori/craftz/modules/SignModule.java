@@ -154,7 +154,7 @@ public class SignModule extends Module {
         }
         final Player p = event.getPlayer();
         final Block block = event.getBlock();
-        if (block.getType() != Material.SIGN_POST && block.getType() != Material.WALL_SIGN) {
+        if (block.getType() != Material.LEGACY_SIGN_POST && block.getType() != Material.LEGACY_WALL_SIGN) {
             return;
         }
         final Sign sign = (Sign) block.getState();
@@ -200,7 +200,7 @@ public class SignModule extends Module {
         }
         final Player p = event.getPlayer();
         final ItemStack item = event.getItem();
-        if (event.getAction() != Action.RIGHT_CLICK_BLOCK || item == null || event.getMaterial() != Material.SIGN
+        if (event.getAction() != Action.RIGHT_CLICK_BLOCK || item == null || event.getMaterial() != Material.LEGACY_SIGN
                 || !item.hasItemMeta()) {
             return;
         }

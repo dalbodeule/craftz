@@ -28,7 +28,7 @@ public class ThirstModule extends Module {
             return;
         }
         Biome biome = p.getLocation().getBlock().getBiome();
-        boolean desert = biome == Biome.DESERT || biome == Biome.DESERT_HILLS || biome == Biome.MUTATED_DESERT;
+        boolean desert = biome == Biome.DESERT || biome == Biome.DESERT_HILLS || biome == Biome.DESERT_LAKES;
         int ticksNeeded = desert
                           ? config.getInt("Config.players.medical.thirst.ticks-desert")
                           : config.getInt("Config.players.medical.thirst.ticks-normal");

@@ -24,9 +24,9 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class DeadPlayers extends Module {
-    public static List<Material> WEAPONS = Arrays.asList(Material.WOOD_SWORD, Material.WOOD_AXE, Material.STONE_SWORD,
-            Material.STONE_AXE, Material.BOW, Material.IRON_SWORD, Material.IRON_AXE, Material.GOLD_SWORD,
-            Material.GOLD_AXE, Material.DIAMOND_SWORD, Material.DIAMOND_AXE
+    public static List<Material> WEAPONS = Arrays.asList(Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.STONE_SWORD,
+            Material.STONE_AXE, Material.BOW, Material.IRON_SWORD, Material.IRON_AXE, Material.GOLDEN_SWORD,
+            Material.GOLDEN_AXE, Material.DIAMOND_SWORD, Material.DIAMOND_AXE
     );
 
     public DeadPlayers(final CraftZ craftZ) {

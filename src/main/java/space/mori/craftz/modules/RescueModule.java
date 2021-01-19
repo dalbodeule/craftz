@@ -54,7 +54,7 @@ public class RescueModule extends Module {
                 players.add(p);
                 p.sendMessage(ChatColor.GOLD + this.getMsg("Messages.rescue-start").replace("%s",
                         String.valueOf(config.getInt("Config.players.rescue.countdown"))));
-                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_PLING, 1, 2);
+                p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 2);
 
                 // Delay
                 Bukkit.getScheduler().runTaskLater(this.getCraftZ(), () -> {
