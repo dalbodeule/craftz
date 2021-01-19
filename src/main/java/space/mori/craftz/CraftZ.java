@@ -618,7 +618,7 @@ public class CraftZ extends JavaPlugin {
         FileConfiguration kits = ConfigManager.getConfig("kits");
         if (!kits.contains("Kits.kits")) {
             kits.addDefault("Kits.kits.nothing.default", true);
-            kits.addDefault("Kits.kits.nothing.items", new LinkedHashMap());
+            kits.addDefault("Kits.kits.nothing.items", new LinkedHashMap<String, ItemStack>());
             kits.addDefault("Kits.kits.basic.permission", "craftz.kit.basic");
             Map<String, ItemStack> kits_basic_items = new LinkedHashMap<>();
             kits_basic_items.put("0", new ItemStack(Material.WOODEN_SWORD, 1, (short) 40));
@@ -635,7 +635,9 @@ public class CraftZ extends JavaPlugin {
         ConfigManager.newConfig("enemies", this, def_enemies);
         ConfigManager.getConfig("kits")
                 .options()
-                .header("++=================================================++\n|| Enemy setup for the CraftZ plugin by JangoBrick ||\n++=================================================++");
+                .header("++=================================================++\n" +
+                        "|| Enemy setup for the CraftZ plugin by JangoBrick ||\n" +
+                        "++=================================================++");
         FileConfiguration enemies = ConfigManager.getConfig("enemies");
         ConfigurationSection sec = enemies.getConfigurationSection("Enemies");
         if (sec == null || sec.getKeys(false).isEmpty()) {
@@ -652,7 +654,7 @@ public class CraftZ extends JavaPlugin {
             enemies.addDefault("Enemies.zombie.drops",
                     makeConfigMap(new String[] {"arrow", "2x'rotten_flesh'"}, new Double[] {0.1, 0.25})
             );
-            enemies.addDefault("Enemies.pigzombie.type", "pig_zombie");
+            enemies.addDefault("Enemies.pigzombie.type", "zombified_piglin");
             enemies.addDefault("Enemies.pigzombie.properties.health", 30);
             enemies.addDefault("Enemies.pigzombie.properties.speed-boost", 0);
             enemies.addDefault("Enemies.pigzombie.properties.damage-boost", 2);
