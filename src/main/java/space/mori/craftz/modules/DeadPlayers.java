@@ -24,10 +24,16 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class DeadPlayers extends Module {
-    public static List<Material> WEAPONS = Arrays.asList(Material.WOODEN_SWORD, Material.WOODEN_AXE, Material.STONE_SWORD,
-            Material.STONE_AXE, Material.BOW, Material.IRON_SWORD, Material.IRON_AXE, Material.GOLDEN_SWORD,
-            Material.GOLDEN_AXE, Material.DIAMOND_SWORD, Material.DIAMOND_AXE
-    );
+    public static List<Material> WEAPONS = Arrays.asList(
+            Material.WOODEN_SWORD, Material.WOODEN_AXE,
+            Material.STONE_SWORD, Material.STONE_AXE,
+            Material.IRON_SWORD, Material.IRON_AXE,
+            Material.GOLDEN_SWORD, Material.GOLDEN_AXE,
+            Material.DIAMOND_SWORD, Material.DIAMOND_AXE,
+            Material.NETHERITE_SWORD, Material.NETHERITE_AXE,
+            Material.BOW, Material.CROSSBOW,
+            Material.TRIDENT
+        );
 
     public DeadPlayers(final CraftZ craftZ) {
         super(craftZ);

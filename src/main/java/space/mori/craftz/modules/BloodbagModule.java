@@ -32,7 +32,7 @@ public class BloodbagModule extends Module {
         Player p = event.getPlayer();
         Action action = event.getAction();
         if ((action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK)
-                && event.getMaterial() == Material.INK_SAC && event.getItem().getDurability() == 1
+                && event.getMaterial() == Material.RED_DYE && event.getItem().getDurability() == 1
                 && config.getBoolean("Config.players.medical.healing.heal-with-rosered") && !config.getBoolean(
                 "Config.players.medical.healing.only-healing-others")) {
             this.reduceInHand(p);
@@ -52,7 +52,7 @@ public class BloodbagModule extends Module {
         Player pdamager = (Player) damager;
         ItemStack hand = pdamager.getInventory().getItemInMainHand();
         Player player = (Player) event.getEntity();
-        if (hand.getType() != Material.INK_SAC || ((Dye) hand.getData()).getColor() != DyeColor.RED || !this.getConfig(
+        if (hand.getType() != Material.RED_DYE || ((Dye) hand.getData()).getColor() != DyeColor.RED || !this.getConfig(
                 "config").getBoolean("Config.players.medical.healing.heal-with-rosered")) {
             return;
         }
