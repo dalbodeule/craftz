@@ -3,6 +3,7 @@ package space.mori.craftz.util;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
+import space.mori.craftz.CraftZ;
 import space.mori.craftz.worlddata.Backpack;
 
 import javax.annotation.Nonnull;
@@ -33,10 +34,10 @@ public class StackParser {
         if (itemName.startsWith("<") && itemName.endsWith(">")) {
             return getCustomItem(itemName.substring(1, itemName.length() - 1), amount);
         }
-        /* if (itemName.contains(":")) {
+        if (itemName.contains(":")) {
             try {
                 final Material mat2 = Material.matchMaterial(itemName.split(":")[0]);
-                mat = ((mat2 != null) ? mat2 : Material.getMaterial(Integer.parseInt(itemName.split(":")[0])));
+                mat = ((mat2 != null) ? mat2 : Material.getMaterial(itemName.split(":")[0]));
                 data = Short.parseShort(itemName.split(":")[1]);
             } catch (Exception ex) {}
             if (mat == null) {
@@ -46,12 +47,12 @@ public class StackParser {
         } else {
             try {
                 final Material mat2 = Material.matchMaterial(itemName);
-                mat = ((mat2 != null) ? mat2 : Material.getMaterial(Integer.parseInt(itemName)));
+                mat = ((mat2 != null) ? mat2 : Material.getMaterial(itemName));
             } catch (Exception ex2) {}
             if (mat == null) {
                 CraftZ.severe("There is no item with name '" + itemName + "'! Please check the configuration files.");
             }
-        } */
+        }
         return (mat == null) ? Optional.empty() : Optional.of(new ItemStack(mat, amount, data));
     }
 
