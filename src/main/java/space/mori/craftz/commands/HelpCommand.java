@@ -20,7 +20,7 @@ public final class HelpCommand extends CraftZCommand {
             return Result.NO_PERMISSION;
         }
         this.send("");
-        this.send(String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + this.getMsg("Messages.help.title"));
+        this.send(this.getMsg("Messages.help.title"));
         CraftZCommandManager cmdm = this.getCraftZ().getCommandManager();
         Set<String> cmds = cmdm.getCommands(false);
         this.printCommand("help", this);

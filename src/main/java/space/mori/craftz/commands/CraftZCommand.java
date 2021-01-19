@@ -90,7 +90,11 @@ public abstract class CraftZCommand extends Module implements CommandExecutor, T
     }
 
     protected void send(Object msg) {
-        this.sender.sendMessage(String.valueOf(msg));
+        this.send(msg, this.sender);
+    }
+
+    protected void send(Object msg, CommandSender sender) {
+        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', String.valueOf(msg)));
     }
 
     public final String getUsage(String label) {

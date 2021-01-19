@@ -3,7 +3,6 @@ package space.mori.craftz.commands;
 import space.mori.craftz.CraftZ;
 import space.mori.craftz.worlddata.Backpack;
 import org.apache.commons.lang.StringUtils;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.inventory.ItemStack;
@@ -31,7 +30,7 @@ public final class MakeBackpackCommand extends CraftZCommand {
             final int size = Integer.parseInt(this.args[0]);
             final String name = StringUtils.join(this.args, ' ', 1, this.args.length);
             if (size % 9 != 0 || size < 9 || size > 54) {
-                this.send(ChatColor.RED + this.getMsg("Messages.errors.backpack-size-incorrect"));
+                this.send(this.getMsg("Messages.errors.backpack-size-incorrect"));
                 return Result.SUCCESS;
             }
             final ItemStack item = Backpack.createItem(size, name, false);

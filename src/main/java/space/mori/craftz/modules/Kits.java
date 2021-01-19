@@ -162,7 +162,7 @@ public class Kits extends Module {
         session.stop(save);
         this.editingSessions.remove(p.getUniqueId());
         if (message) {
-            p.sendMessage(ChatColor.AQUA + this.getMsg(
+            p.sendMessage(this.getMsg(
                     "Messages.cmd.kitsadmin." + (save ? "kit-edited" : "kit-editing-cancelled"))
                     .replace("%k", session.kit.getName()));
         }

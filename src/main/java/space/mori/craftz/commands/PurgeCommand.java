@@ -1,7 +1,6 @@
 package space.mori.craftz.commands;
 
 import space.mori.craftz.CraftZ;
-import org.bukkit.ChatColor;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -35,8 +34,8 @@ public final class PurgeCommand extends CraftZCommand {
                     ++n;
                 }
             }
-            this.send(this.getCraftZ().getPrefix() + " " + ChatColor.GREEN + this.getMsg("Messages.cmd.purged")
-                    .replace("%z", String.valueOf(ChatColor.AQUA) + n + ChatColor.GREEN));
+            this.send(this.getCraftZ().getPrefix() + " " + this.getMsg("Messages.cmd.purged")
+                    .replace("%z", "" + n));
             return Result.SUCCESS;
         }
         return Result.NO_PERMISSION;

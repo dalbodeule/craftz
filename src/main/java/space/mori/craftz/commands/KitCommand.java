@@ -2,7 +2,6 @@ package space.mori.craftz.commands;
 
 import space.mori.craftz.CraftZ;
 import space.mori.craftz.modules.Kit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -24,7 +23,7 @@ public final class KitCommand extends CraftZCommand {
             return Result.WRONG_USAGE;
         }
         if (!this.getCraftZ().getPlayerManager().isInsideOfLobby(this.p)) {
-            this.send(ChatColor.RED + this.getMsg("Messages.errors.not-in-lobby"));
+            this.send(this.getMsg("Messages.errors.not-in-lobby"));
         } else {
             final String kitname = this.args[0];
             final Kit kit = this.getCraftZ().getKits().match(kitname);
